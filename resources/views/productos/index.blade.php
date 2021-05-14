@@ -124,7 +124,7 @@
 					</div>
 					@endif
 					<div class="card-body">
-					<form class="form" role="form" autocomplete="off" action="{{ route('save')}}" method="POST">
+					<form class="form" role="form" autocomplete="off" action="{{ route('save')}}" method="POST" enctype="multipart/form-data">
 						@csrf
 							<div class="form-group row">
 								<label class="col-lg-3 col-form-label form-control-label">Nombre</label>
@@ -150,11 +150,19 @@
 									<input class="form-control" type="number" name="stock">
 								</div>
 							</div>
+
+							<div class="form-group row">
+								<label class="col-lg-3 col-form-label form-control-label">Imagen</label>
+								<div class="col-lg-9">
+									<input class="form-control-file" type="file" name="image_name">
+								</div>
+							</div>
+
 							<div class="form-group row">
 								<div class="col-lg-12 text-center">
 									<input type="reset" class="btn btn-secondary" value="Cancel">
 									<input type="submit" class="btn btn-primary"
-										value="Save Changes">
+										value="Guardar">
 								</div>
 							</div>
 						</form>

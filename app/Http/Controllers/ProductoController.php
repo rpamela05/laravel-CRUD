@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Response;
 use Illuminate\Http\Request;
 use App\Producto;
+use CloudinaryLabs\CloudinaryLaravel\Facades\Cloudinary;
 
 class ProductoController extends Controller
 {
@@ -12,6 +13,7 @@ class ProductoController extends Controller
         return view('productos.index');
     }
     public function save(Request $request){
+        $image_name = Cloudinary::upload($request->file('image_name')->getRealPath())->getSecurePath();
 
         $validate=$this->validate($request,[
             'nombre'=>'required|string',
